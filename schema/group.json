@@ -1,0 +1,24 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/group.schema.json",
+    "title": "Group Zarr Metadata",
+    "description": "This object represents the Zarr metadata found in a Group zarr.json document.",
+    "type": "object",
+    "properties": {
+        "zarr_format": {
+            "description": "The version of the storage specification to which the group adheres.",
+            "type": "integer"
+        },
+        "node_type": {
+            "description": "A string defining the type of hierarchy node element",
+            "const": "group"
+        },
+        "attributes": {
+            "type": "object"
+        }
+    },
+    "required": [
+        "zarr_format",
+        "node_type"
+    ]
+}

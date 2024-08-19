@@ -1,0 +1,87 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/product.schema.json",
+    "title": "Array Zarr Metadata",
+    "description": "This object represents the Zarr metadata found in an Array zarr.json document.",
+    "type": "object",
+    "properties": {
+        "zarr_format": {
+            "description": "The version of the storage specification to which the array adheres.",
+            "type": "integer"
+        },
+        "node_type": {
+            "description": "A string defining the type of hierarchy node element",
+            "const": "array"
+        },
+        "shape": {
+            "description": "The length of each dimension of the array.",
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        },
+        "data_type": {
+            "type": [
+                "string",
+                "object"
+            ]
+        },
+        "chunk_grid": {
+            "type": [
+                "string",
+                "object"
+            ]
+        },
+        "chunk_key_encoding": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "configuration": {
+                    "type": "object",
+                    "properties": {
+                        "separator": {
+                            "enum": [
+                                "/",
+                                "."
+                            ]
+                        }
+                    }
+                }
+            },
+            "required": [
+                "name"
+            ]
+        },
+        "fill_value": {},
+        "codecs": {
+            "type": "array"
+        },
+        "attributes": {
+            "type": "object"
+        },
+        "storage_transformers": {
+            "type": "array",
+            "items": {
+                "type": "object"
+            }
+        },
+        "dimension_names": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "zarr_format",
+        "node_type",
+        "shape",
+        "data_type",
+        "chunk_grid",
+        "chunk_key_encoding",
+        "fill_value",
+        "codecs"
+    ]
+}
